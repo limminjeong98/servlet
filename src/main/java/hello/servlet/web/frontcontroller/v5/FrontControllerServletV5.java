@@ -63,6 +63,8 @@ public class FrontControllerServletV5 extends HttpServlet {
         // ControllerV3HandlerAdapter, ControllerV4HandlerAdapter
         MyHandlerAdapter adapter = getHandlerAdapter(handler);
 
+        // 어댑터가 호출하는 ControllerV4는 뷰의 이름을 반환함
+        // 어댑터는 뷰의 이름이 아니라 ModelView를 만들어서 반환해야 함
         ModelView mv = adapter.handle(request, response, handler);
 
         String viewName = mv.getViewName();

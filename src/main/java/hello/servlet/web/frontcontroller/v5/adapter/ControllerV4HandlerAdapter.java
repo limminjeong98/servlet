@@ -20,13 +20,17 @@ public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
 
     @Override
     public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
+        // handler를 ControllerV4로 캐스팅
         ControllerV4 controller = (ControllerV4) handler;
 
+        // paramMap, model을 만들어서 해당 컨트롤러를 호출
         Map<String, String> paramMap = createParamMap(request);
         Map<String, Object> model = new HashMap<>();
 
+        // viewName을 반환받음
         String viewName = controller.process(paramMap, model);
 
+        // 어댑터 변환
         ModelView mv = new ModelView(viewName);
         mv.setModel(model);
 
