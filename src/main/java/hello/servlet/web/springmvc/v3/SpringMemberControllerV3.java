@@ -11,6 +11,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+/**
+ * v3
+ * Model 도입
+ * ViewName 직접 반환
+ * @RequestParam 사용
+ * @RequestMapping -> @GetMapping, @PostMapping
+ */
+
 @Controller
 @RequestMapping("/springmvc/v3/members")
 public class SpringMemberControllerV3 {
@@ -22,6 +30,9 @@ public class SpringMemberControllerV3 {
         return "new-form";
     }
 
+    // @RequestMapping("/save", method = RequestMethod.POST)
+    // @RequestMapping은 URL만 매칭하는 것이 아니라, HTTP Method도 함께 구분할 수 있음
+    //
     @PostMapping("/save")
     public String save(@RequestParam("username") String username, @RequestParam("age") int age, Model model) {
         Member member = new Member(username, age);
