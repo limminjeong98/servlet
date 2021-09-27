@@ -10,6 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+// @RequestMapping을 클래스 단위가 아니라 메서드 단위에 적용
+// 컨트롤러 클래스를 하나로 통합하고 조합
+// 클래스 레벨에 @RequestMapping을 두면 메서드 레벨과 조합이 된다.
+
+// @RequestMapping("/springmvc/v2/members/new-form")
+// @RequestMapping("/springmvc/v2/members/")
+// @RequestMapping("/springmvc/v2/members/save")
+// 위의 메서드 레벨에서 중복되는 부분을 클래스 레벨로 뽑음
 @Controller
 @RequestMapping("/springmvc/v2/members")
 public class SpringMemberControllerV2 {
