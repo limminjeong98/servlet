@@ -19,6 +19,8 @@ public class SpringMemberListControllerV1 {
         List<Member> members = memberRepository.findAll();
 
         ModelAndView mv = new ModelAndView("members");
+        // mv.getModel().put("members", members);
+        // ModelAndView에서 지원해주는 addObject를 쓰는 편이 더 깔끔하다
         mv.addObject("members", members);
         return mv;
     }
